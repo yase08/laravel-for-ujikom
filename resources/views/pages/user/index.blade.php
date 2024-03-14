@@ -5,6 +5,31 @@
         <section class="section-header">
             <h1>User</h1>
         </section>
+                @if ($errors->any())
+            @foreach ($errors->message as $errs)
+                {{ dd($errs) }}
+            @endforeach
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    <b>Success:</b>
+                    {{ session('success') }}
+                </div>
+            </div>
+        @endif
+        @if (session('fail'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                </div>
+            </div>
+        @endif
     </section>
     <div class="row">
         <div class="col-12">
